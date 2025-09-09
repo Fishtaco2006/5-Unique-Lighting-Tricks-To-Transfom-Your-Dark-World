@@ -90,11 +90,63 @@ Create tiny glowing orbs that float gently in the air.
 **What it does:**  
 Adds ambient, magical lighting that moves and sparkles.
 
-**How to use it:**
-- Create a small invisible object (like a sphere).
-- Attach a **Point Light** with low intensity and short range.
-- Randomize flicker and animate slight movement.
-- Duplicate and spread them in forests, caves, or fields.
+**How to make it:**
+- Click on the cube on the top left corner of the editor, then click on ***Empty Object*** in the drop down menu to spawn an Empty Object.
+  <img width="1357" height="666" alt="image" src="https://github.com/user-attachments/assets/9a978f28-623e-42a0-9a74-07774505c02d" />
+
+
+
+
+- Go to ***public assets***, change the search category to ***VFX***, the scroll down to find the ***Imapct A*** effect, and drag it on the screen.
+  <img width="1358" height="619" alt="image" src="https://github.com/user-attachments/assets/11239d3f-5ebc-4de5-9ec6-a8354f80430e" />
+
+- Change the VFX name to Sparkle
+- Change the ***Prefab Name*** to ***impact_style_a***
+- Turn on ***Looping***, change ***SparkleID (0-15)*** to ***5***
+- Change ***SparkleRotation*** to ***30, -30***.
+- Change ***SparkleScale*** to ***0***.
+- Change ***SparkleColorHSVA*** to ***0, 0, 1, 1***.(Change to your desired color here)
+- Change ***SparkleLifetime*** to ***1, 0.5***.
+- Turn on ***GlowToggle***.
+- Change ***GlowLifetime*** to ***1, 0.4***.
+- Change ***GlowColor*** to ***0, 0, 1, 1***. (Change to your desired color here)
+- Turn off ***TinySparkleToggle***. ( Values of next 5 variables irrelevant)
+- Turn on ***RingToggle***.
+- Change ***RingScale*** to ***0.1***.
+- Change ***RingColorHSVA*** to ***0, 0, 1, 1***. (Change to your desired color here)
+- Change ***RingLifeTime*** to ***0.1, 0.4***.
+- Change ***GlobalScale*** to ***1***.
+  <img width="1363" height="550" alt="image" src="https://github.com/user-attachments/assets/2aa35fed-b82c-4629-a2ab-babf550038ea" />
+
+  <img width="1363" height="529" alt="image" src="https://github.com/user-attachments/assets/5b58e19f-a204-47d3-8523-e1140ce733ef" />
+
+- Next, add a ***Dynamic Light***.
+- Turn on ***Enabled***.
+- Change ***Light Type*** to ***Point***
+- Change ***Color*** to ***1, 1, 1 (White)***. (Change to your desired color here)
+- Change ***Intensity*** to ***0.5***.
+- Change ***Falloff Distance** to ***1***.
+
+  <img width="1363" height="551" alt="image" src="https://github.com/user-attachments/assets/17525303-5c8a-4ae1-8260-1e4ad5d71fc6" />
+
+- Make sure the ***Dynamic Light*** and the ***Sparkle VFX*** are centered
+  
+  <img width="347" height="189" alt="image" src="https://github.com/user-attachments/assets/e3149255-03b2-4497-afaf-0a62833b15c5" /> <img width="195" height="189" alt="image" src="https://github.com/user-attachments/assets/a7a2f6ad-9bd4-4324-b120-8b5cd76de154" />
+
+
+
+- Drag the ***Dynamic Light*** and the ***Sparkle VFX*** into the empty object and rename the empty object to ***FireFly***
+  
+  <img width="306" height="147" alt="image" src="https://github.com/user-attachments/assets/81a9c6f3-3cf8-41c0-8ba8-69140ac54718" />
+
+  
+- Make a script called ***FireFly_Logic***, add the code below to the script, save the script, and add the script to the fire fly object
+  
+  <img width="416" height="189" alt="image" src="https://github.com/user-attachments/assets/fbd74375-e900-44ae-b310-acbc044ce5bc" />
+
+
+
+
 
 **Bonus:** Use soft colors like pale blue or gold for mood.
 
