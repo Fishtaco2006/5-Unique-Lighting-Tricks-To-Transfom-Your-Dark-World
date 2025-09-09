@@ -6,7 +6,11 @@ Lighting isn’t just about seeing where you’re going — it sets the tone, gu
 
 ## 🔧 Lighting Gizmo Overview
 
+<img width="293" height="239" alt="image" src="https://github.com/user-attachments/assets/efa094f4-c01b-492b-ba26-56ce1d16c858" />
+
 The **Lighting Gizmo** gives you full control over dynamic light sources in your world. It’s used to create spotlights, point lights, and other custom lighting effects.
+
+<img width="299" height="436" alt="image" src="https://github.com/user-attachments/assets/345f56bd-ca04-44c1-a5e8-47f0a6d5fb66" />
 
 You can configure:
 - **Light Type** – Point, Spot, or Directional.
@@ -22,7 +26,11 @@ We'll use this gizmo in all five lighting effects below.
 
 ## 🌍 Environment Gizmo Overview
 
+<img width="206" height="206" alt="image" src="https://github.com/user-attachments/assets/286b758a-0612-46e9-a8ee-cf0262b662c7" />
+
 The **Environment Gizmo** lets you control the atmosphere of your world. It affects how your sky, fog, lighting, and ambient environment look and feel. This is especially important when creating darker or stylized environments.
+
+<img width="298" height="314" alt="image" src="https://github.com/user-attachments/assets/11fe4ac8-6175-4879-8725-aa06809d8340" />
 
 Here’s what each setting does:
 
@@ -33,7 +41,7 @@ Here’s what each setting does:
 ### 🌌 Skydome Type
 - Sets the type of sky used.
   - **Cubemap**: Realistic skybox textures (e.g. clouds, sunset).
-  - **Procedural**: A dynamic, generated sky.
+  
 
 ### 🖼️ Texture
 - Choose a specific sky texture when using **Cubemap** mode.  
@@ -41,7 +49,7 @@ Here’s what each setting does:
 
 ### 🔄 Texture Rotation
 - Rotates the sky dome around the Y-axis.
-- Useful for positioning the sun or moon.
+- Useful for positioning object in the sky.
 
 ### ☀️ Exposure
 - Controls the overall brightness of the environment.
@@ -75,6 +83,7 @@ Here’s what each setting does:
 ---
 
 ## 1. 🐞 Fireflies
+<img width="1366" height="528" alt="image" src="https://github.com/user-attachments/assets/d5f9ec20-a330-482b-91b6-ac867183c091" />
 
 Create tiny glowing orbs that float gently in the air.
 
