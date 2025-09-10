@@ -13,12 +13,23 @@ The **Lighting Gizmo** gives you full control over dynamic light sources in your
 <img width="299" height="436" alt="image" src="https://github.com/user-attachments/assets/345f56bd-ca04-44c1-a5e8-47f0a6d5fb66" />
 
 You can configure:
-- **Light Type** – Point, Spot, or Directional.
-- **Intensity** – Brightness of the light.
-- **Range** – How far the light reaches.
-- **Color** – Use to match environment tone (e.g. warm for fire, cool for moonlight).
-- **Shadows** – Enable realistic shadows.
-- **Flicker** – Add motion or energy to the light (good for torches).
+### 🔦 **Light Type**
+- **Point**: Emits light in all directions from a central point (like a bulb or firefly).
+- **Spot**: Emits light in a cone shape (like a flashlight or searchlight).
+
+
+### 🎨 **Color (R, G, B)**
+- The color of the light being emitted.
+- Use warm colors (like 1, 0.6, 0.3) for firelight, or bright colors (like 0, 1, 0) for neon or energy.
+
+### 💡 **Intensity**
+- Controls how **bright** the light is.
+
+
+### 📏 **Falloff Distance**
+- Determines how far the light reaches before it fades out.
+- Higher values = larger area affected.
+- Lower values = tighter, more focused lighting.
 
 We'll use this gizmo in all five lighting effects below.
 
@@ -82,81 +93,89 @@ Here’s what each setting does:
 
 ---
 
-## 1. 🐞 Fireflies
-<img width="1366" height="528" alt="image" src="https://github.com/user-attachments/assets/d5f9ec20-a330-482b-91b6-ac867183c091" />
+## 1. 🐞 Fireflies  
+![Fireflies Preview](https://github.com/user-attachments/assets/d5f9ec20-a330-482b-91b6-ac867183c091)
 
 Create tiny glowing orbs that float gently in the air.
 
 **What it does:**  
 Adds ambient, magical lighting that moves and sparkles.
 
-**How to make it:**
-- Click on the cube on the top left corner of the editor, then click on ***Empty Object*** in the drop down menu to spawn an Empty Object.
-  <img width="1357" height="666" alt="image" src="https://github.com/user-attachments/assets/9a978f28-623e-42a0-9a74-07774505c02d" />
+---
 
+### 🔧 How to Make It
 
+- Click on the cube in the top-left corner of the editor, then click on **_Empty Object_** in the drop-down menu.  
+  ![Empty Object](https://github.com/user-attachments/assets/9a978f28-623e-42a0-9a74-07774505c02d)
 
+- Go to **_Public Assets_**, change the search category to **_VFX_**, scroll down to find **_Impact A_**, and drag it onto the screen.  
+  ![Impact A](https://github.com/user-attachments/assets/11239d3f-5ebc-4de5-9ec6-a8354f80430e)
 
-- Go to ***public assets***, change the search category to ***VFX***, the scroll down to find the ***Imapct A*** effect, and drag it on the screen.
-  <img width="1358" height="619" alt="image" src="https://github.com/user-attachments/assets/11239d3f-5ebc-4de5-9ec6-a8354f80430e" />
+#### 🎨 VFX Settings
 
-- Change the VFX name to Sparkle
-- Change the ***Prefab Name*** to ***impact_style_a***
-- Turn on ***Looping***, change ***SparkleID (0-15)*** to ***5***
-- Change ***SparkleRotation*** to ***30, -30***.
-- Change ***SparkleScale*** to ***0***.
-- Change ***SparkleColorHSVA*** to ***0, 0, 1, 1***.(Change to your desired color here)
-- Change ***SparkleLifetime*** to ***1, 0.5***.
-- Turn on ***GlowToggle***.
-- Change ***GlowLifetime*** to ***1, 0.4***.
-- Change ***GlowColor*** to ***0, 0, 1, 1***. (Change to your desired color here)
-- Turn off ***TinySparkleToggle***. ( Values of next 5 variables irrelevant)
-- Turn on ***RingToggle***.
-- Change ***RingScale*** to ***0.1***.
-- Change ***RingColorHSVA*** to ***0, 0, 1, 1***. (Change to your desired color here)
-- Change ***RingLifeTime*** to ***0.1, 0.4***.
-- Change ***GlobalScale*** to ***1***.
-  <img width="1363" height="550" alt="image" src="https://github.com/user-attachments/assets/2aa35fed-b82c-4629-a2ab-babf550038ea" />
+- Rename VFX to `Sparkle`
+- Set **Prefab Name** to `impact_style_a`
+- Enable **Looping**
+- Set **SparkleID (0–15)** to `5`
+- Set **SparkleRotation** to `30, -30`
+- Set **SparkleScale** to `0`
+- Set **SparkleColorHSVA** to `0, 0, 1, 1`
+- Set **SparkleLifetime** to `1, 0.5`
+- Enable **GlowToggle**
+- Set **GlowLifetime** to `1, 0.4`
+- Set **GlowColor** to `0, 0, 1, 1`
+- Disable **TinySparkleToggle**
+- Enable **RingToggle**
+- Set **RingScale** to `0.1`
+- Set **RingColorHSVA** to `0, 0, 1, 1`
+- Set **RingLifetime** to `0.1, 0.4`
+- Set **GlobalScale** to `1`
 
-  <img width="1363" height="529" alt="image" src="https://github.com/user-attachments/assets/5b58e19f-a204-47d3-8523-e1140ce733ef" />
+![VFX Setup 1](https://github.com/user-attachments/assets/2aa35fed-b82c-4629-a2ab-babf550038ea)  
+![VFX Setup 2](https://github.com/user-attachments/assets/5b58e19f-a204-47d3-8523-e1140ce733ef)
 
-- Next, add a ***Dynamic Light***.
-- Turn on ***Enabled***.
-- Change ***Light Type*** to ***Point***
-- Change ***Color*** to ***1, 1, 1 (White)***. (Change to your desired color here)
-- Change ***Intensity*** to ***0.5***.
-- Change ***Falloff Distance** to ***1***.
+---
 
-  <img width="1363" height="551" alt="image" src="https://github.com/user-attachments/assets/17525303-5c8a-4ae1-8260-1e4ad5d71fc6" />
+### 💡 Add a Dynamic Light
 
-- Make sure the ***Dynamic Light***, ***Empty Object*** and the ***Sparkle VFX*** are centered
-  
-  <img width="360" height="189" alt="image" src="https://github.com/user-attachments/assets/41547660-b03c-4cde-b4fb-13399d86d4d6" />
- <img width="195" height="189" alt="image" src="https://github.com/user-attachments/assets/a7a2f6ad-9bd4-4324-b120-8b5cd76de154" />
+- Add a **Dynamic Light**
+- Enable it
+- Set **Light Type** to `Point`
+- Set **Color** to `1, 1, 1`
+- Set **Intensity** to `0.5`
+- Set **Falloff Distance** to `1`
 
+![Dynamic Light](https://github.com/user-attachments/assets/17525303-5c8a-4ae1-8260-1e4ad5d71fc6)
 
+Center all components:  
+![Centering 1](https://github.com/user-attachments/assets/41547660-b03c-4cde-b4fb-13399d86d4d6)  
+![Centering 2](https://github.com/user-attachments/assets/a7a2f6ad-9bd4-4324-b120-8b5cd76de154)
 
-- Drag the ***Dynamic Light*** and the ***Sparkle VFX*** into the empty object and rename the empty object to ***FireFly***
-  
-  <img width="306" height="147" alt="image" src="https://github.com/user-attachments/assets/81a9c6f3-3cf8-41c0-8ba8-69140ac54718" />
+---
 
-  
-- Make a script called ***FireFly_Logic***, add the code below to the script, save the script, and add the script to the fire fly object
+### 🗃️ Organize Your Object
 
-  <img width="416" height="189" alt="image" src="https://github.com/user-attachments/assets/fbd74375-e900-44ae-b310-acbc044ce5bc" />
+- Group the **Dynamic Light** and **Sparkle VFX** inside the Empty Object
+- Rename the Empty Object to `FireFly`
 
-- FireFly_Logic code:
+![Grouping](https://github.com/user-attachments/assets/81a9c6f3-3cf8-41c0-8ba8-69140ac54718)
 
-```typescript
+---
 
+### 🧠 Firefly Logic Script
+
+- Create a script called `FireFly_Logic`, paste the following code, and attach it to the `FireFly` object  
+  ![Script Attachment](https://github.com/user-attachments/assets/fbd74375-e900-44ae-b310-acbc044ce5bc)
+
+```ts
 import * as hz from 'horizon/core';
 
 class Firefly extends hz.Component<typeof Firefly> {
   static propsDefinition = {
     minX: { type: hz.PropTypes.Number, default: -20 },
     maxX: { type: hz.PropTypes.Number, default: 20 },
-    minY: { type: hz.PropTypes.Number, default: 5 }, // New property for min Y
-    maxY: { type: hz.PropTypes.Number, default: 10 }, // New property for max Y
+    minY: { type: hz.PropTypes.Number, default: 5 },
+    maxY: { type: hz.PropTypes.Number, default: 10 },
     minZ: { type: hz.PropTypes.Number, default: -20 },
     maxZ: { type: hz.PropTypes.Number, default: 20 },
     speed: { type: hz.PropTypes.Number, default: 1 },
@@ -170,13 +189,12 @@ class Firefly extends hz.Component<typeof Firefly> {
     this.timer = this.async.setInterval(() => {
       this.direction = this.getRandomDirection();
     }, 5000);
-
     this.connectLocalBroadcastEvent(hz.World.onUpdate, this.update.bind(this));
   }
 
   getRandomDirection(): hz.Vec3 {
     const angleXZ = Math.random() * 2 * Math.PI;
-    const angleY = (Math.random() - 0.5) * Math.PI; // Random angle between -PI/2 and PI/2
+    const angleY = (Math.random() - 0.5) * Math.PI;
     return new hz.Vec3(
       Math.cos(angleXZ) * Math.cos(angleY),
       Math.sin(angleY),
@@ -188,30 +206,9 @@ class Firefly extends hz.Component<typeof Firefly> {
     const position = this.entity.position.get();
     const newPosition = position.add(this.direction.mul(this.props.speed! * data.deltaTime));
 
-    // Keep the firefly within the defined area
-    if (newPosition.x < this.props.minX!) {
-      newPosition.x = this.props.minX!;
-      this.direction.x = -this.direction.x;
-    } else if (newPosition.x > this.props.maxX!) {
-      newPosition.x = this.props.maxX!;
-      this.direction.x = -this.direction.x;
-    }
-
-    if (newPosition.y < this.props.minY!) {
-      newPosition.y = this.props.minY!;
-      this.direction.y = -this.direction.y;
-    } else if (newPosition.y > this.props.maxY!) {
-      newPosition.y = this.props.maxY!;
-      this.direction.y = -this.direction.y;
-    }
-
-    if (newPosition.z < this.props.minZ!) {
-      newPosition.z = this.props.minZ!;
-      this.direction.z = -this.direction.z;
-    } else if (newPosition.z > this.props.maxZ!) {
-      newPosition.z = this.props.maxZ!;
-      this.direction.z = -this.direction.z;
-    }
+    if (newPosition.x < this.props.minX! || newPosition.x > this.props.maxX!) this.direction.x *= -1;
+    if (newPosition.y < this.props.minY! || newPosition.y > this.props.maxY!) this.direction.y *= -1;
+    if (newPosition.z < this.props.minZ! || newPosition.z > this.props.maxZ!) this.direction.z *= -1;
 
     this.entity.position.set(newPosition);
   }
@@ -222,43 +219,37 @@ class Firefly extends hz.Component<typeof Firefly> {
 }
 
 hz.Component.register(Firefly);
-
 ```
-These values are used to restrict where the fireflies are allowed to travel and also the speed:
-- MinX - Minimum X value fireflies are allowed to reach
-- MaxX - Maximum X value fireflies are allowed to reach
-- MinY - Minimum Y value fireflies are allowed to reach
-- MaxY - Maximum Y value fireflies are allowed to reach
-- MinZ - Minimum Z value fireflies are allowed to reach
-- MaxZ - Maximum Z value fireflies are allowed to reach
-- Speed Speed of the fireflies
-  
-  <img width="293" height="242" alt="image" src="https://github.com/user-attachments/assets/3070b4d7-d6b0-438b-9ab2-1a39d461a2fe" />
 
-- Next, right click on the ***FireFly*** Object and click Create Asset.
-  
-<img width="391" height="500" alt="image" src="https://github.com/user-attachments/assets/2f2941e4-3099-407d-a410-8d1d61719604" />
+**Settings Explanation:**
 
-- Name it Firefly and click Create.
+| Property | Description |
+|----------|-------------|
+| `minX`, `maxX` | X-axis boundaries |
+| `minY`, `maxY` | Y-axis boundaries |
+| `minZ`, `maxZ` | Z-axis boundaries |
+| `speed` | Movement speed |
 
-  <img width="500" height="430" alt="image" src="https://github.com/user-attachments/assets/838bc3fb-1c98-4b70-b2c2-421bce33c642" />
+![Script Variables](https://github.com/user-attachments/assets/3070b4d7-d6b0-438b-9ab2-1a39d461a2fe)
 
-Now, the FireFly object is done. :)
+---
 
-###FireFly Spawner
+### 📂 Save as Asset
 
-- The firefly is done, now its time to make the firefly spawner. First, add another empty object, name it ***FireFly Spawner*** and make a new script called ***FireFly_Spawner***.
-  
-  <img width="1357" height="561" alt="image" src="https://github.com/user-attachments/assets/39e012c9-d077-4a57-9a2b-eb2041c81fd6" />
+- Right-click the `FireFly` object > **Create Asset**  
+  ![Create Asset](https://github.com/user-attachments/assets/2f2941e4-3099-407d-a410-8d1d61719604)
+- Name it `Firefly` and click **Create**  
+  ![Save Asset](https://github.com/user-attachments/assets/838bc3fb-1c98-4b70-b2c2-421bce33c642)
 
-<img width="309" height="206" alt="image" src="https://github.com/user-attachments/assets/180c07db-de94-41c4-822f-46e0772e8058" />
+---
 
-- Copy the code below into the script:
-  
-  FireFly_Spawner:
-  
-```typescript
+## ♻️ Firefly Spawner
 
+- Create an **Empty Object**, name it `FireFly Spawner`, and add a script called `FireFly_Spawner`  
+  ![Spawner Setup](https://github.com/user-attachments/assets/39e012c9-d077-4a57-9a2b-eb2041c81fd6)  
+  ![Spawner Script](https://github.com/user-attachments/assets/180c07db-de94-41c4-822f-46e0772e8058)
+
+```ts
 import { Asset, Entity } from 'horizon/core';
 import * as hz from 'horizon/core';
 
@@ -279,11 +270,10 @@ class FireflySpawner extends hz.Component<typeof FireflySpawner> {
         this.fireflies.push(firefly);
       });
     } else if (this.fireflies.length >= this.props.maxFireflies!) {
-      // Despawn the oldest firefly if the maximum count is reached
       const oldestFirefly = this.fireflies.shift();
       if (oldestFirefly) {
         this.world.deleteAsset(oldestFirefly, true);
-        this.spawnFirefly(); // Spawn a new firefly in its place
+        this.spawnFirefly();
       }
     }
   }
@@ -291,11 +281,10 @@ class FireflySpawner extends hz.Component<typeof FireflySpawner> {
   start(): void {
     this.async.setInterval(() => {
       this.spawnFirefly();
-    }, 2000); // Spawn a firefly every 2 seconds
+    }, 2000);
   }
 
   dispose(): void {
-    // Clean up any remaining fireflies when the component is disposed
     this.fireflies.forEach((firefly) => {
       this.world.deleteAsset(firefly, true);
     });
@@ -306,36 +295,32 @@ class FireflySpawner extends hz.Component<typeof FireflySpawner> {
 hz.Component.register(FireflySpawner);
 ```
 
-- Attach the script to the ***FireFly Spawner***. Attach the FireFly asset you created to the firefly Asset variable, attach the ***FireFly Spawner*** object to the spawnLocation variable, and set the max number of firefleis that will be spawned.
+- Attach the script to `FireFly Spawner`  
+- Assign the `fireflyAsset`, `spawnLocation`, and `maxFireflies` values  
+  ![Spawner Settings](https://github.com/user-attachments/assets/a2302bf4-6489-45c6-851c-6ce6fc0bcf02)
 
-  <img width="293" height="142" alt="image" src="https://github.com/user-attachments/assets/a2302bf4-6489-45c6-851c-6ce6fc0bcf02" />
+---
 
-Now the Firefly Spawner is done.
+## 📊 Testing
 
-###Testing
+- Add an **Environment Gizmo** and set the cubemap to `Midnight Black`  
+  ![Environment](https://github.com/user-attachments/assets/8bdf089b-b1bd-4987-a901-0aad84997627)
 
-- For easier visibility spawn an environment gizmo and set the cubemap to ***Midnight Black***.
-<img width="765" height="447" alt="image" src="https://github.com/user-attachments/assets/8bdf089b-b1bd-4987-a901-0aad84997627" />
+- Preview the world  
+  ![Preview](https://github.com/user-attachments/assets/c9bd0ae3-8a9b-473f-897a-631524794ad0)  
+  ![Forest](https://github.com/user-attachments/assets/d5f9ec20-a330-482b-91b6-ac867183c091)
 
-- Now preview the world and watch the little guys go.
+---
 
-  <img width="810" height="463" alt="image" src="https://github.com/user-attachments/assets/c9bd0ae3-8a9b-473f-897a-631524794ad0" />
+## ⚠️ Performance Tip
 
-- How it Looks in a forest.
+Dynamic lights are **performance heavy**. If enabled, you can only spawn ~15 fireflies. Without them, you can spawn many more.
 
-  <img width="1366" height="528" alt="image" src="https://github.com/user-attachments/assets/d5f9ec20-a330-482b-91b6-ac867183c091" />
+**With Dynamic Lighting**  
+![With Light](https://github.com/user-attachments/assets/d5f9ec20-a330-482b-91b6-ac867183c091)
 
-**Note:** Dynamic Lights are performance heavy. Adding the dynamic light to fireflies means you can only spawn about 15 of them maximum. While it does look prettier with the dynamic lights removing the dynamic lights allows you to spawn a lot more and also looks good. Depending on your use case you might want to do that.
-
-With Dynamic Lighting:
-
-<img width="1366" height="528" alt="image" src="https://github.com/user-attachments/assets/d5f9ec20-a330-482b-91b6-ac867183c091" />
-
-Without Dynamic Lighting:
-
-<img width="1171" height="502" alt="image" src="https://github.com/user-attachments/assets/cceb99d2-b78c-40ad-ad3d-bbe00f31b766" />
-
-
+**Without Dynamic Lighting**  
+![Without Light](https://github.com/user-attachments/assets/cceb99d2-b78c-40ad-ad3d-bbe00f31b766)
 
 ---
 
@@ -398,6 +383,13 @@ Adds directional lighting and creates tension or focus.
 
 <img width="1019" height="385" alt="image" src="https://github.com/user-attachments/assets/ef0822de-3bb0-4035-9c51-a9cde9a37afa" />
 
+- Drag a trigger into the scene called ***Search Light Range***, position it just in front of the searchlight,and then drag it into the search light object (this is how the search light finds players).
+
+**Note:** You can adjust the size of the trigger for your use case
+
+  <img width="1366" height="491" alt="image" src="https://github.com/user-attachments/assets/d42c6bca-1492-4641-ac7d-6fa1306e0170" />
+
+
 - Now, drag an environent gizmo into the scene and set the Texture to ***Midnight Black***.
   
   <img width="1056" height="551" alt="image" src="https://github.com/user-attachments/assets/02b6696b-e976-4fff-8c14-0528293ecb1c" />
@@ -413,14 +405,140 @@ Adds directional lighting and creates tension or focus.
 
   ***Search_Light_Logic:***
 
+```typescript
+
+  import { Entity } from 'horizon/core';
+import * as hz from 'horizon/core';
+
+class Searchlight extends hz.Component<typeof Searchlight> {
+  static propsDefinition = {
+    trigger: { type: hz.PropTypes.Entity },
+    led: { type: hz.PropTypes.Entity },
+    light: { type: hz.PropTypes.Entity },
+    alarmSound: { type: hz.PropTypes.Entity },
+    scanAngle: { type: hz.PropTypes.Number, default: 30 },
+    scanSpeed: { type: hz.PropTypes.Number, default: 1 },
+    tiltAngle: { type: hz.PropTypes.Number, default: 30 }, // New property for tilt angle
+    offset: { type: hz.PropTypes.Number, default: 90 }, // New property for offset angle
+  };
+
+  private trackedPlayer: hz.Player | null = null;
+  private scanDirection: number = 1;
+  private alarmTimer: number = 0;
+  private initialRotation!: hz.Quaternion;
+
+  preStart() {
+    this.connectCodeBlockEvent(this.props.trigger!, hz.CodeBlockEvents.OnPlayerEnterTrigger, this.onPlayerEnter.bind(this));
+    this.connectCodeBlockEvent(this.props.trigger!, hz.CodeBlockEvents.OnPlayerExitTrigger, this.onPlayerExit.bind(this));
+    this.connectLocalBroadcastEvent(hz.World.onUpdate, this.update.bind(this));
+  }
+
+  start() {
+    // Initialize the LED and light colors to white
+    this.props.led!.as(hz.MeshEntity).style.tintColor.set(hz.Color.white);
+    this.props.light!.as(hz.DynamicLightGizmo).color.set(hz.Color.white);
+    this.initialRotation = this.entity.rotation.get();
+  }
+
+  onPlayerEnter(player: hz.Player) {
+    this.trackedPlayer = player;
+    // Change the LED and light colors to red
+    this.props.led!.as(hz.MeshEntity).style.tintColor.set(hz.Color.red);
+    this.props.light!.as(hz.DynamicLightGizmo).color.set(hz.Color.red);
+    this.props.alarmSound!.as(hz.AudioGizmo).play();
+  }
+
+  onPlayerExit(player: hz.Player) {
+    if (this.trackedPlayer === player) {
+      this.trackedPlayer = null;
+      // Change the LED and light colors back to white
+      this.props.led!.as(hz.MeshEntity).style.tintColor.set(hz.Color.white);
+      this.props.light!.as(hz.DynamicLightGizmo).color.set(hz.Color.white);
+    }
+  }
+
+  update(data: { deltaTime: number }) {
+    if (this.trackedPlayer) {
+      // Make the searchlight look at the tracked player
+      const direction = hz.Vec3.sub(this.trackedPlayer.position.get(), this.entity.position.get()).normalize();
+      const rotation = hz.Quaternion.lookRotation(direction);
+      // Apply tilt angle
+      const tiltRotation = hz.Quaternion.fromAxisAngle(hz.Vec3.forward, hz.degreesToRadians(this.props.tiltAngle!));
+      
+      const additionalRotation = hz.Quaternion.fromAxisAngle(hz.Vec3.up, hz.degreesToRadians(this.props.offset));
+      this.entity.rotation.set(additionalRotation.mul(rotation).mul(tiltRotation));
+      
+      // Play alarm sound every 3 seconds
+      this.alarmTimer += data.deltaTime;
+      if (this.alarmTimer >= 3) {
+        this.props.alarmSound!.as(hz.AudioGizmo).play();
+        this.alarmTimer = 0;
+      }
+    } else {
+      // Scan the area
+      const currentRotation = this.entity.rotation.get();
+      const targetRotation = hz.Quaternion.fromAxisAngle(hz.Vec3.up, hz.degreesToRadians(this.scanDirection * this.props.scanAngle!)).mul(this.initialRotation);
+      // Apply tilt angle to target rotation
+      const tiltRotation = hz.Quaternion.fromAxisAngle(hz.Vec3.forward, hz.degreesToRadians(-this.props.tiltAngle!));
+      const tiltedTargetRotation = tiltRotation.mul(targetRotation);
+      const newRotation = hz.Quaternion.slerp(currentRotation, tiltedTargetRotation, data.deltaTime * this.props.scanSpeed!);
+      this.entity.rotation.set(newRotation);
+
+      // Update scan direction
+      const angleBetweenQuaternions = (q1: hz.Quaternion, q2: hz.Quaternion) => {
+        const dot = Math.abs(q1.x * q2.x + q1.y * q2.y + q1.z * q2.z + q1.w * q2.w);
+        return Math.acos(Math.min(dot, 1)) * 2;
+      };
+      const angle = angleBetweenQuaternions(currentRotation, tiltedTargetRotation);
+      if (Math.abs(hz.radiansToDegrees(angle)) < 1) {
+        this.scanDirection *= -1;
+      }
+    }
+  }
+}
+
+hz.Component.register(Searchlight);
+
+```
+
+- Attach this script to the search light and edit the variables as such:
+
+  <img width="297" height="264" alt="image" src="https://github.com/user-attachments/assets/42c648a2-79a0-481c-9b34-f66d7968371e" />
+
+- To explain what these variables do
+
+  ## 🔦 Search Light Logic Properties
+
+The `Search_Light_Logic` component controls a dynamic rotating spotlight that can detect players, play alarms, and simulate patrol behavior. Here's what each property does:
+
+| **Property**     | **Type**         | **Description** |
+|------------------|------------------|------------------|
+| `trigger`        | Entity Reference | The detection trigger zone (e.g., sphere or box collider) that activates the searchlight when something enters. |
+| `led`            | Entity Reference | A visual object like an LED or spotlight mesh that rotates along with the light. |
+| `light`          | Dynamic Light    | The actual dynamic light component that emits visible light into the scene. |
+| `alarmSound`     | Sound Asset      | A sound that plays when the trigger is activated — typically a siren or alarm. |
+| `scanAngle`      | Number (degrees) | How far the searchlight rotates left and right from its center. A value of `30` rotates from -30° to +30°. |
+| `scanSpeed`      | Number           | How fast the light moves while scanning. Higher values mean faster sweeping. |
+| `tiltAngle`      | Number (degrees) | The vertical angle the light is tilted. Useful for aiming the light downward or upward. |
+| `offset`         | Number (degrees) | A rotational offset applied to the base direction of the light to align it correctly in your scene. |
+
+***Note:*** The offset is there because of the search lights unique shape. The side of the search light would be pointing towards you instead front. If you are using it for another assets and the orientation is off. Try changing the value of the offset by 90 degrees until it looks right.
 
 
 
+- This script makes it so that the search light patrols the area until a player enters the trigger when the player enters, it locks onto them and blares an alarm until they leave the trigger.
+
+***Patrolling:***
+
+<img width="745" height="558" alt="image" src="https://github.com/user-attachments/assets/c5f80702-657e-45e6-b61f-4a550ea4f83b" />
+
+***Tracking:***
+
+<img width="749" height="568" alt="image" src="https://github.com/user-attachments/assets/d931a90b-1ec2-43e3-9be7-a808cdf146c5" />
 
 
 
-
-**Best used in:** Bases, prisons, stormy outposts.
+> ✅ Use this component to create stealth gameplay, spotlight towers, security patrols, or cinematic lighting effects.
 
 ---
 
