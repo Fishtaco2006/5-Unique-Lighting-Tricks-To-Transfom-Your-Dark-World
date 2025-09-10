@@ -254,6 +254,7 @@ Now, the FireFly object is done. :)
 <img width="309" height="206" alt="image" src="https://github.com/user-attachments/assets/180c07db-de94-41c4-822f-46e0772e8058" />
 
 - Copy the code below into the script:
+  
   FireFly_Spawner:
   
 ```typescript
@@ -305,16 +306,36 @@ class FireflySpawner extends hz.Component<typeof FireflySpawner> {
 hz.Component.register(FireflySpawner);
 ```
 
-- Attach the script to the ***FireFly Spawner
+- Attach the script to the ***FireFly Spawner***. Attach the FireFly asset you created to the firefly Asset variable, attach the ***FireFly Spawner*** object to the spawnLocation variable, and set the max number of firefleis that will be spawned.
 
-  
-  
+  <img width="293" height="142" alt="image" src="https://github.com/user-attachments/assets/a2302bf4-6489-45c6-851c-6ce6fc0bcf02" />
+
+Now the Firefly Spawner is done.
+
+###Testing
+
+- For easier visibility spawn an environment gizmo and set the cubemap to ***Midnight Black***.
+<img width="765" height="447" alt="image" src="https://github.com/user-attachments/assets/8bdf089b-b1bd-4987-a901-0aad84997627" />
+
+- Now preview the world and watch the little guys go.
+
+  <img width="810" height="463" alt="image" src="https://github.com/user-attachments/assets/c9bd0ae3-8a9b-473f-897a-631524794ad0" />
+
+- How it Looks in a forest.
+
+  <img width="1366" height="528" alt="image" src="https://github.com/user-attachments/assets/d5f9ec20-a330-482b-91b6-ac867183c091" />
+
+**Note:** Dynamic Lights are performance heavy. Adding the dynamic light to fireflies means you can only spawn about 15 of them maximum. While it does look prettier with the dynamic lights removing the dynamic lights allows you to spawn a lot more and also looks good. Depending on your use case you might want to do that.
+
+With Dynamic Lighting:
+
+<img width="1366" height="528" alt="image" src="https://github.com/user-attachments/assets/d5f9ec20-a330-482b-91b6-ac867183c091" />
+
+Without Dynamic Lighting:
+
+<img width="1171" height="502" alt="image" src="https://github.com/user-attachments/assets/cceb99d2-b78c-40ad-ad3d-bbe00f31b766" />
 
 
-
-
-
-**Bonus:** Use soft colors like pale blue or gold for mood.
 
 ---
 
@@ -326,9 +347,78 @@ Simulates a guard tower or sci-fi beacon sweeping the area.
 Adds directional lighting and creates tension or focus.
 
 **How to use it:**
-- Use a **Spot Light** with narrow angle and long range.
-- Attach it to a rotating object or use a script.
-- Sweep back and forth with animation or sin curve logic.
+- Go to Public Assets, search for a ***search light***, drag it into the world and rename it Search Light.
+  
+  <img width="1054" height="614" alt="image" src="https://github.com/user-attachments/assets/5b7326c8-6fb3-474c-82c3-f2c3db1c2944" />
+
+<img width="292" height="481" alt="image" src="https://github.com/user-attachments/assets/b29a3c71-97f6-497f-814c-c2d137d64ea5" />
+
+
+- Click on the cube on the top left corner and in the drop down menu click on shapes, then drag the object named ***Cylinder C*** into the world.
+
+<img width="833" height="614" alt="image" src="https://github.com/user-attachments/assets/03363c6b-8937-4ed9-95bc-c47b964888f6" />
+
+
+  <img width="992" height="564" alt="image" src="https://github.com/user-attachments/assets/14ceb2d6-18c5-43db-b13e-7c5889a7d736" />
+
+- Change the name of the cylinder to led and then change the properties of the cylinder to those seen in the image below:
+
+  <img width="300" height="514" alt="image" src="https://github.com/user-attachments/assets/f225332e-81d5-401a-8cfc-06b33af5a309" />
+
+- Drag the ***LED Object*** and center it to the lens of the ***Search Light***.
+  
+  <img width="424" height="246" alt="image" src="https://github.com/user-attachments/assets/1c0a8e73-c3fe-48c0-8d0f-f1ccd5bd6b3e" /> <img width="325" height="253" alt="image" src="https://github.com/user-attachments/assets/ba5a4b20-8f9a-4234-9f85-d3ade1ab394c" />
+
+- Go to Gizmos and drag a dynamic light into the scene.
+
+<img width="718" height="441" alt="image" src="https://github.com/user-attachments/assets/c7f4295d-889b-4307-a8b7-3ecb1f53007b" />
+
+<img width="780" height="555" alt="image" src="https://github.com/user-attachments/assets/5712db52-5b6f-40ca-8066-86161d6fb256" />
+
+- Center the Dynamic Light to the ***LED Object*** and the ***Search Light***.
+
+  <img width="1064" height="518" alt="image" src="https://github.com/user-attachments/assets/cb68d4d8-f8c0-407c-91fc-582b26c1e23a" />
+
+<img width="1057" height="493" alt="image" src="https://github.com/user-attachments/assets/4947534c-d142-4156-ab85-b93dbd2a4a49" />
+
+- Click on the cube at the top left, then click on sounds and search for ***Mechanical Alarm Triple (Random)***, then drag the sound into the scene.
+
+<img width="355" height="359" alt="image" src="https://github.com/user-attachments/assets/fa7e08ce-80f6-410d-a46a-84331f760a47" />
+
+<img width="698" height="510" alt="image" src="https://github.com/user-attachments/assets/62aac9cb-844e-4368-ac18-22e6b29c97d2" />
+
+- Center the Alarm Sound with the rest.
+
+  <img width="472" height="266" alt="image" src="https://github.com/user-attachments/assets/2c979152-c2fc-45e2-b087-78c82989bc01" />
+
+<img width="279" height="231" alt="image" src="https://github.com/user-attachments/assets/1975eda0-6977-4836-bfba-c6013055829d" />
+
+
+-Drag the Dynamic Light, Alarm Sound and LED object into the Search Light.
+
+<img width="1019" height="385" alt="image" src="https://github.com/user-attachments/assets/ef0822de-3bb0-4035-9c51-a9cde9a37afa" />
+
+- Now, drag an environent gizmo into the scene and set the Texture to ***Midnight Black***.
+  
+  <img width="1056" height="551" alt="image" src="https://github.com/user-attachments/assets/02b6696b-e976-4fff-8c14-0528293ecb1c" />
+
+- Now, the search light is coming together. Next we need the script.
+
+  <img width="905" height="408" alt="image" src="https://github.com/user-attachments/assets/f68be323-15c3-4d38-b81a-400f13afa985" />
+
+
+- Now, make a new script called ***Search_Light_Logic*** and copy the code below into it.
+
+<img width="516" height="551" alt="image" src="https://github.com/user-attachments/assets/f571d7f1-9951-46e5-ae68-9fde17063c70" />
+
+  ***Search_Light_Logic:***
+
+
+
+
+
+
+
 
 **Best used in:** Bases, prisons, stormy outposts.
 
@@ -368,16 +458,137 @@ Simulates fire or candlelight in dark areas.
 
 ## 5. ✨ Neon Signs
 
-Glow up your dark city or interior scenes with vibrant signage.
+In darker environments, standard text and signs can easily fade into the background or become hard to read. Neon lights solve this by adding a vibrant, glowing presence that draws the player's eye. Whether you're labeling locations, guiding players, or adding style to your world, neon lights are both functional and visually striking — perfect for dark, atmospheric spaces
+
+In the dark, a sign in the editor would be hard to read. Adding a dynamic light helps but does give it that neon and shiny look
+
+Sign in the Dark:
+
+<img width="494" height="253" alt="image" src="https://github.com/user-attachments/assets/78f7f4db-f805-4835-9101-27f78acd53af" />
+
+Sign in the Dark with Dynamic light (Better, but doesnt look that great):
+
+<img width="436" height="249" alt="Screenshot 2025-09-10 142245" src="https://github.com/user-attachments/assets/3135dbff-f5af-4e18-9f9d-d8e3d90de6b9" />
+
+
+Sign with neon and shiny effect (much better):
+
+<img width="415" height="223" alt="image" src="https://github.com/user-attachments/assets/b010d411-f3bf-412a-83a0-79654d9eaa48" />
 
 **What it does:**  
 Creates eye-catching focal points and improves visibility.
 
 **How to use it:**
-- Use mesh text or emissive planes.
-- Place **Point Lights** or **Area Lights** near the sign.
-- Match the light color to the sign’s theme.
-- Use bold colors like neon blue, magenta, green.
+- 
+- First, spawn an Environment Gizmo and change the texture to ***Midnight Black***.
+  
+  <img width="915" height="314" alt="image" src="https://github.com/user-attachments/assets/540c205f-7ba8-4463-8b8c-9885cd89182e" />
+
+- Then click on ***Public Assets***, search for ***Letter a*** and drag the asset named ***Circus Neon Letter A*** into the scene.
+  
+  <img width="843" height="635" alt="image" src="https://github.com/user-attachments/assets/28550cca-196b-402b-a4ac-ed30c7bed7a6" />
+
+- Click on the asset and to acheive the neon effect we will set the ***Tint Strength*** to 0 and then set the ***Brightness*** to 100.
+
+Before: 
+
+<img width="1349" height="364" alt="image" src="https://github.com/user-attachments/assets/fb542960-8966-43a2-9563-7dc5392a03c7" />
+
+After:
+
+<img width="1364" height="448" alt="image" src="https://github.com/user-attachments/assets/88df223f-3939-4c49-8d13-48e22e75c77e" />
+
+Easy right, no we can add different letters together to make a sign in the example we made a Diner sign.
+
+<img width="689" height="276" alt="image" src="https://github.com/user-attachments/assets/60e9154d-3cc2-492a-8cfe-ee804a93e4d9" />
+
+⚡ Flickering Neon
+
+To make your neon signs feel even more alive — or even a little unstable — you can add flickering effects. This not only enhances realism (like an old sign buzzing with electricity), but also adds personality and atmosphere. A subtle flicker can make your world feel gritty, retro, or even a little haunted, depending on the color and timing you choose.
+
+
+- To add this effect make a script called ***Flickering_Light*** and then copy this code into it:
+  ***Flickering_Light:***
+  
+```typescript
+
+  import { Entity } from 'horizon/core';
+import * as hz from 'horizon/core';
+
+class FlickeringLight extends hz.Component<typeof FlickeringLight> {
+  static propsDefinition = {
+    meshEntity: { type: hz.PropTypes.Entity }
+  };
+
+  private mesh!: hz.MeshEntity;
+  private baseBrightness!: number;
+  private minBrightness!: number;
+  private maxBrightness!: number;
+
+  start() {
+    this.mesh = this.props.meshEntity!.as(hz.MeshEntity)!;
+    this.baseBrightness = this.mesh.style.brightness.get();
+    this.minBrightness = this.baseBrightness * 0.1; // Minimum brightness is 80% of the base
+    this.maxBrightness = this.baseBrightness * 1.3; // Maximum brightness is 120% of the base
+
+    this.connectLocalBroadcastEvent(hz.World.onUpdate, this.update.bind(this));
+  }
+
+  update(data: { deltaTime: number }) {
+    // Randomly vary the brightness between min and max
+    const newBrightness = this.minBrightness + (Math.random() * (this.maxBrightness - this.minBrightness));
+    this.mesh.style.brightness.set(newBrightness);
+  }
+}
+
+hz.Component.register(FlickeringLight);
+```
+- Attach this script to a letter and then edit the min and max brightness to change the range of brightness it flickers between.
+
+  <img width="295" height="99" alt="image" src="https://github.com/user-attachments/assets/ec2d9f0e-fa61-4c5b-8120-e632d072f3eb" />
+
+- Now preview the world and you can see the effect.
+
+  <img width="642" height="342" alt="image" src="https://github.com/user-attachments/assets/d0010c79-3d15-4a11-8dd0-2f1c39310240" />
+  (The effect is more prominent in the video).
+
+ ***Bonus:*** This effect can also be used on a dynamic light by changing the intensity instead of the brightness.
+- To do this make a new script, copy the code below into the script and then attach it to a dynamic light.
+
+```typescript
+ import { Entity } from 'horizon/core';
+import * as hz from 'horizon/core';
+
+class FlickeringDynamicLight extends hz.Component<typeof FlickeringDynamicLight> {
+  static propsDefinition = {
+    
+  };
+
+  private light!: hz.DynamicLightGizmo;
+  private baseIntensity!: number;
+  private minIntensity!: number;
+  private maxIntensity!: number;
+
+  start() {
+    this.light = this.entity.as(hz.DynamicLightGizmo)!;
+    this.baseIntensity = this.light.intensity.get();
+    this.minIntensity = this.baseIntensity * 0.8; // Minimum intensity is 80% of the base
+    this.maxIntensity = this.baseIntensity * 1.2; // Maximum intensity is 120% of the base
+
+    this.connectLocalBroadcastEvent(hz.World.onUpdate, this.update.bind(this));
+  }
+
+  update(data: { deltaTime: number }) {
+    // Randomly vary the intensity between min and max
+    const newIntensity = this.minIntensity + (Math.random() * (this.maxIntensity - this.minIntensity));
+    this.light.intensity.set(newIntensity);
+  }
+}
+
+hz.Component.register(FlickeringDynamicLight);
+```
+- This adds the flickering effect to the dynamic light. Which can be used to simulate fire for candle, torches and campfires.
+
 
 **Great for:** Cyberpunk cities, shops, arcades, or fun themed worlds.
 
