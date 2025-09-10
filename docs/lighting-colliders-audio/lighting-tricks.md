@@ -129,9 +129,10 @@ Adds ambient, magical lighting that moves and sparkles.
 
   <img width="1363" height="551" alt="image" src="https://github.com/user-attachments/assets/17525303-5c8a-4ae1-8260-1e4ad5d71fc6" />
 
-- Make sure the ***Dynamic Light*** and the ***Sparkle VFX*** are centered
+- Make sure the ***Dynamic Light***, ***Empty Object*** and the ***Sparkle VFX*** are centered
   
-  <img width="347" height="189" alt="image" src="https://github.com/user-attachments/assets/e3149255-03b2-4497-afaf-0a62833b15c5" /> <img width="195" height="189" alt="image" src="https://github.com/user-attachments/assets/a7a2f6ad-9bd4-4324-b120-8b5cd76de154" />
+  <img width="360" height="189" alt="image" src="https://github.com/user-attachments/assets/41547660-b03c-4cde-b4fb-13399d86d4d6" />
+ <img width="195" height="189" alt="image" src="https://github.com/user-attachments/assets/a7a2f6ad-9bd4-4324-b120-8b5cd76de154" />
 
 
 
@@ -141,8 +142,173 @@ Adds ambient, magical lighting that moves and sparkles.
 
   
 - Make a script called ***FireFly_Logic***, add the code below to the script, save the script, and add the script to the fire fly object
-  
+
   <img width="416" height="189" alt="image" src="https://github.com/user-attachments/assets/fbd74375-e900-44ae-b310-acbc044ce5bc" />
+
+- FireFly_Logic code:
+
+```typescript
+
+import * as hz from 'horizon/core';
+
+class Firefly extends hz.Component<typeof Firefly> {
+  static propsDefinition = {
+    minX: { type: hz.PropTypes.Number, default: -20 },
+    maxX: { type: hz.PropTypes.Number, default: 20 },
+    minY: { type: hz.PropTypes.Number, default: 5 }, // New property for min Y
+    maxY: { type: hz.PropTypes.Number, default: 10 }, // New property for max Y
+    minZ: { type: hz.PropTypes.Number, default: -20 },
+    maxZ: { type: hz.PropTypes.Number, default: 20 },
+    speed: { type: hz.PropTypes.Number, default: 1 },
+  };
+
+  private direction!: hz.Vec3;
+  private timer!: number;
+
+  start() {
+    this.direction = this.getRandomDirection();
+    this.timer = this.async.setInterval(() => {
+      this.direction = this.getRandomDirection();
+    }, 5000);
+
+    this.connectLocalBroadcastEvent(hz.World.onUpdate, this.update.bind(this));
+  }
+
+  getRandomDirection(): hz.Vec3 {
+    const angleXZ = Math.random() * 2 * Math.PI;
+    const angleY = (Math.random() - 0.5) * Math.PI; // Random angle between -PI/2 and PI/2
+    return new hz.Vec3(
+      Math.cos(angleXZ) * Math.cos(angleY),
+      Math.sin(angleY),
+      Math.sin(angleXZ) * Math.cos(angleY)
+    );
+  }
+
+  update(data: { deltaTime: number }) {
+    const position = this.entity.position.get();
+    const newPosition = position.add(this.direction.mul(this.props.speed! * data.deltaTime));
+
+    // Keep the firefly within the defined area
+    if (newPosition.x < this.props.minX!) {
+      newPosition.x = this.props.minX!;
+      this.direction.x = -this.direction.x;
+    } else if (newPosition.x > this.props.maxX!) {
+      newPosition.x = this.props.maxX!;
+      this.direction.x = -this.direction.x;
+    }
+
+    if (newPosition.y < this.props.minY!) {
+      newPosition.y = this.props.minY!;
+      this.direction.y = -this.direction.y;
+    } else if (newPosition.y > this.props.maxY!) {
+      newPosition.y = this.props.maxY!;
+      this.direction.y = -this.direction.y;
+    }
+
+    if (newPosition.z < this.props.minZ!) {
+      newPosition.z = this.props.minZ!;
+      this.direction.z = -this.direction.z;
+    } else if (newPosition.z > this.props.maxZ!) {
+      newPosition.z = this.props.maxZ!;
+      this.direction.z = -this.direction.z;
+    }
+
+    this.entity.position.set(newPosition);
+  }
+
+  dispose() {
+    this.async.clearInterval(this.timer);
+  }
+}
+
+hz.Component.register(Firefly);
+
+```
+These values are used to restrict where the fireflies are allowed to travel and also the speed:
+- MinX - Minimum X value fireflies are allowed to reach
+- MaxX - Maximum X value fireflies are allowed to reach
+- MinY - Minimum Y value fireflies are allowed to reach
+- MaxY - Maximum Y value fireflies are allowed to reach
+- MinZ - Minimum Z value fireflies are allowed to reach
+- MaxZ - Maximum Z value fireflies are allowed to reach
+- Speed Speed of the fireflies
+  
+  <img width="293" height="242" alt="image" src="https://github.com/user-attachments/assets/3070b4d7-d6b0-438b-9ab2-1a39d461a2fe" />
+
+- Next, right click on the ***FireFly*** Object and click Create Asset.
+  
+<img width="391" height="500" alt="image" src="https://github.com/user-attachments/assets/2f2941e4-3099-407d-a410-8d1d61719604" />
+
+- Name it Firefly and click Create.
+
+  <img width="500" height="430" alt="image" src="https://github.com/user-attachments/assets/838bc3fb-1c98-4b70-b2c2-421bce33c642" />
+
+Now, the FireFly object is done. :)
+
+###FireFly Spawner
+
+- The firefly is done, now its time to make the firefly spawner. First, add another empty object, name it ***FireFly Spawner*** and make a new script called ***FireFly_Spawner***.
+  
+  <img width="1357" height="561" alt="image" src="https://github.com/user-attachments/assets/39e012c9-d077-4a57-9a2b-eb2041c81fd6" />
+
+<img width="309" height="206" alt="image" src="https://github.com/user-attachments/assets/180c07db-de94-41c4-822f-46e0772e8058" />
+
+- Copy the code below into the script:
+  FireFly_Spawner:
+  
+```typescript
+
+import { Asset, Entity } from 'horizon/core';
+import * as hz from 'horizon/core';
+
+class FireflySpawner extends hz.Component<typeof FireflySpawner> {
+  static propsDefinition = {
+    fireflyAsset: { type: hz.PropTypes.Asset },
+    spawnLocation: { type: hz.PropTypes.Entity },
+    maxFireflies: { type: hz.PropTypes.Number, default: 10 },
+  };
+
+  private fireflies: Entity[] = [];
+
+  private spawnFirefly(): void {
+    if (this.props.fireflyAsset! && this.props.spawnLocation! && this.fireflies.length < this.props.maxFireflies!) {
+      const spawnPosition = this.props.spawnLocation!.position.get();
+      this.world.spawnAsset(this.props.fireflyAsset!, spawnPosition).then((entities) => {
+        const firefly = entities[0];
+        this.fireflies.push(firefly);
+      });
+    } else if (this.fireflies.length >= this.props.maxFireflies!) {
+      // Despawn the oldest firefly if the maximum count is reached
+      const oldestFirefly = this.fireflies.shift();
+      if (oldestFirefly) {
+        this.world.deleteAsset(oldestFirefly, true);
+        this.spawnFirefly(); // Spawn a new firefly in its place
+      }
+    }
+  }
+
+  start(): void {
+    this.async.setInterval(() => {
+      this.spawnFirefly();
+    }, 2000); // Spawn a firefly every 2 seconds
+  }
+
+  dispose(): void {
+    // Clean up any remaining fireflies when the component is disposed
+    this.fireflies.forEach((firefly) => {
+      this.world.deleteAsset(firefly, true);
+    });
+    this.fireflies = [];
+  }
+}
+
+hz.Component.register(FireflySpawner);
+```
+
+- Attach the script to the ***FireFly Spawner
+
+  
+  
 
 
 
