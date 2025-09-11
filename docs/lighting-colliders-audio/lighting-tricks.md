@@ -157,7 +157,7 @@ Adds ambient, magical lighting that moves and sparkles.
 
 ![Dynamic Light](https://github.com/user-attachments/assets/17525303-5c8a-4ae1-8260-1e4ad5d71fc6)
 
-Center all components:  
+Center all components (Move them to the same position):  
 ![Centering 1](https://github.com/user-attachments/assets/41547660-b03c-4cde-b4fb-13399d86d4d6)  
 ![Centering 2](https://github.com/user-attachments/assets/a7a2f6ad-9bd4-4324-b120-8b5cd76de154)
 
