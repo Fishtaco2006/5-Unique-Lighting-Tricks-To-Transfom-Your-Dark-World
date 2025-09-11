@@ -331,6 +331,7 @@ Dynamic lights are **performance heavy**. If enabled, you can only spawn ~15 fir
 **Without Dynamic Lighting**  
 ![Without Light](https://github.com/user-attachments/assets/cceb99d2-b78c-40ad-ad3d-bbe00f31b766)
 
+You can remove dynamic lighting by deleting the dynamic light gizmo in the firefly asset.
 ---
 
 ## 2. 🔦 Rotating Spotlight (Searchlight)
