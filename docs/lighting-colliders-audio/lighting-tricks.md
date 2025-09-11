@@ -821,7 +821,7 @@ Easy right, no we can add different letters together to make a sign in the examp
 
 <img width="689" height="276" alt="image" src="https://github.com/user-attachments/assets/60e9154d-3cc2-492a-8cfe-ee804a93e4d9" />
 
-⚡ Flickering Neon
+ ## 5. Flickering lights
 
 To make your neon signs feel even more alive — or even a little unstable — you can add flickering effects. This not only enhances realism (like an old sign buzzing with electricity), but also adds personality and atmosphere. A subtle flicker can make your world feel gritty, retro, or even a little haunted, depending on the color and timing you choose.
 
