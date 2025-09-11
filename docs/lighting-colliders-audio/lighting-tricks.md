@@ -2,6 +2,14 @@
 
 Lighting isn’t just about seeing where you’re going — it sets the tone, guides the player, and makes your world feel alive. In this tutorial, we’ll start with a quick overview of the **Lighting Gizmo** and the **Environment Gizmo**, and then go through **five creative lighting techniques** you can use to elevate any dark environment.
 
+## Learning Objectives
+
+In this tutorial you will learn
+- How to make Fireflies
+- How to make a SearchLight
+- How to make a Navigation Light
+- How To make Neon Lights
+- How To make flickering Lights 
 ---
 
 ## 🔧 Lighting Gizmo Overview
@@ -540,41 +548,234 @@ The `Search_Light_Logic` component controls a dynamic rotating spotlight that ca
 
 > ✅ Use this component to create stealth gameplay, spotlight towers, security patrols, or cinematic lighting effects.
 
----
+<img width="731" height="467" alt="image" src="https://github.com/user-attachments/assets/74b291fa-5efd-446a-b6f8-92a71da1c21d" />
 
-## 3. 🧚 Fairy Companion Light
-
-Make a glowing orb that follows the player and lights their path.
-
-**What it does:**  
-Adds mobile lighting and a magical companion feel.
-
-**How to use it:**
-- Create a small object with a **Point Light**.
-- Attach a script to follow the player at a short offset.
-- Optionally add flicker, glow, or wing particles.
-
-**Perfect for:** Fantasy, story-driven, or moody worlds.
+<img width="728" height="486" alt="image" src="https://github.com/user-attachments/assets/a679b01b-cf48-4891-acbb-2c83ae2a0011" />
 
 ---
 
-## 4. 🔥 Flickering Torches and Lanterns
+## 3.🧭 Navigation Light (Beacon Light)
 
-Use flickering to make static lights feel warm and alive.
+Sometimes in dark environments, players can easily lose their sense of direction — especially during night cycles, storms, or in large open worlds. A **navigation beacon** acts as a visual anchor, helping guide players toward important locations like spawn points, objectives, or safe zones.
 
-**What it does:**  
-Simulates fire or candlelight in dark areas.
+### 💡 What It Does
+- Provides a **constant or rotating light** visible from far away.
+- Helps players orient themselves in low-visibility areas.
+- Can mark key locations like spawn pads, boss arenas, or exits.
 
-**How to use it:**
-- Use a **Point Light** with orange/yellow color.
-- Enable **Flicker** and adjust intensity variation.
-- Attach to torches, lanterns, sconces.
+### 🛠️ How to Make It
+- Click on the cube on the top left, click on shapes, drag the ***Sphere B*** shape into the scene, rename it Navigation Light, and turn up the brightness to 100.
 
-**Add ons:** Fire sound, smoke particles, shadows.
+<img width="1364" height="576" alt="image" src="https://github.com/user-attachments/assets/60ff3ad3-6d12-4fb5-99c8-4ae3e8c29a41" />
+
+- Click on ***Public Assets***, change the category to ***VFX***, search for the ***Impact A*** effect and drag it into the scene
+
+  
+  <img width="1072" height="643" alt="image" src="https://github.com/user-attachments/assets/a8585eb4-1ac4-4c4c-819a-b91612a71c77" />
+
+- Change the name of the ***VFX*** to Sparkle, change ***Prefab_name*** to ***Impact_A***, and turn on play on start and looping.
+
+  <img width="1366" height="511" alt="image" src="https://github.com/user-attachments/assets/56af3ccb-6cf5-46b6-bd37-0a1b05b96bc4" />
+
+- Change the ***Custome FX Properties*** to match the image below.
+
+  <img width="1372" height="608" alt="image" src="https://github.com/user-attachments/assets/a701a0d4-a79c-4943-b575-1e6dbaa8bdce" />
+
+- Go to ***Public Assets***, change the categoty to ***VFX***, search for the ***Insect*** VFX, drag it into the scene, rename it butterfly and edit the properties to match the image below.
+
+  <img width="1366" height="620" alt="image" src="https://github.com/user-attachments/assets/7e0172e8-c829-4f95-9e96-6ea1a5c686f3" />
+
+- Drag a dynamic light gizmo into the scene, and edit its properties to match what is seen in the Image below.
+
+ <img width="1367" height="561" alt="image" src="https://github.com/user-attachments/assets/c9c95c7a-b6dd-4c86-8cb6-ac321739c600" />
+
+- Click on the cube at the top left corner of the screen, click on sounds in the drop down menu, search for the ***Magic Note (Random)*** sound effect, drag that into the scene and edit the properties as seen in the image.
+
+  <img width="1366" height="587" alt="image" src="https://github.com/user-attachments/assets/46151177-8ad0-44c6-9b30-efe034313d23" />
+
+- Center the ***Navigation Light***, ***Sparkle VFX***, ***Butterfly Vfx***, ***Dynamic Light***, and ***Magic note Sound Together***.
+
+  <img width="981" height="275" alt="image" src="https://github.com/user-attachments/assets/04bbf677-9f83-4741-b398-389d013c0c11" />
+
+- Drag the ***Sparkle VFX***, ***Butterfly Vfx***, ***Dynamic Light***, and ***Magic note Sound Together*** into the ***Navigation Light***.
+
+  <img width="766" height="258" alt="image" src="https://github.com/user-attachments/assets/ca3f0c45-af96-4227-bc9a-cc2d653183bf" />
+
+- Make three empty objects and call them ***Start Pos***, ***Middle Pos***, ***End Pos*** (These represent the path that the navigation light will follow).
+
+  <img width="968" height="275" alt="image" src="https://github.com/user-attachments/assets/b6621a0d-a4be-40cf-a8b0-34c95f16b7dc" />
+
+
+- Drag a trigger gizmo called ***Activation Trigger***, and have it trigger on players.
+
+<img width="1366" height="538" alt="image" src="https://github.com/user-attachments/assets/f87a9d26-c79a-4eba-8fe2-6193f594f5c5" />
+
+- Make a new script called ***Navigation_Light_Logic*** and copy the code below into it.
+
+<img width="457" height="353" alt="image" src="https://github.com/user-attachments/assets/40f3ccc9-0dee-4884-aa2a-bcbbbd5cbbe4" />
+
+***Navigation_Light_Logic:***
+
+```typescript
+
+  import { Entity } from 'horizon/core';
+import * as hz from 'horizon/core';
+
+class NavigationLight extends hz.Component<typeof NavigationLight> {
+  static propsDefinition = {
+    point1: { type: hz.PropTypes.Entity },
+    point2: { type: hz.PropTypes.Entity },
+    point3: { type: hz.PropTypes.Entity },
+    speed: { type: hz.PropTypes.Number, default: 5 },
+    startTrigger: { type: hz.PropTypes.Entity },
+    movingSound: { type: hz.PropTypes.Entity }, // Add an AudioGizmo entity as a property
+  };
+
+  private points!: hz.Vec3[];
+  private currentIndex: number = 0;
+  private isMoving: boolean = false;
+  private movingSoundGizmo!: hz.AudioGizmo;
+
+  preStart() {
+    // Connect the trigger to start the platform's movement.
+    if (this.props.startTrigger!) {
+      this.connectCodeBlockEvent(
+        this.props.startTrigger!,
+        hz.CodeBlockEvents.OnPlayerEnterTrigger,
+        () => {
+          // Start moving only if the platform is currently stationary.
+          if (!this.isMoving) {
+            this.isMoving = true;
+            this.currentIndex = 0; // Reset path to the beginning.
+            this.playMovingSound(); // Play the moving sound
+          }
+        }
+      );
+    }
+
+    // Connect the update loops for point tracking and movement.
+    this.connectLocalBroadcastEvent(hz.World.onPrePhysicsUpdate, this.updatePoints.bind(this));
+    this.connectLocalBroadcastEvent(hz.World.onPrePhysicsUpdate, this.movePlatform.bind(this));
+  }
+
+  start() {
+    // Ensure the starting point is defined in the editor.
+    if (!this.props.point1!) {
+      console.error('Point 1 must be defined for the initial position.');
+      return;
+    }
+    // Set the platform's initial position to the first point.
+    this.entity.position.set(this.props.point1!.position.get());
+
+    // Get the AudioGizmo instance
+    if (this.props.movingSound!) {
+      this.movingSoundGizmo = this.props.movingSound!.as(hz.AudioGizmo)!;
+    }
+  }
+
+  updatePoints() {
+    // Continuously update point positions in case they move.
+    if (!this.props.point1! || !this.props.point2! || !this.props.point3!) {
+      return;
+    }
+    this.points = [
+      this.props.point1!.position.get(),
+      this.props.point2!.position.get(),
+      this.props.point3!.position.get(),
+    ];
+  }
+
+  movePlatform(data: { deltaTime: number }) {
+    // Only move the platform if it has been triggered.
+    if (!this.isMoving || !this.points) {
+      return;
+    }
+
+    const currentPosition = this.entity.position.get();
+    const targetPosition = this.points[this.currentIndex];
+
+    const distance = currentPosition.distance(targetPosition);
+    const movement = this.props.speed! * data.deltaTime;
+
+    // If the platform is close enough to the target, snap to it and update the target.
+    if (distance <= movement) {
+      this.entity.position.set(targetPosition);
+
+      // Check if the platform has reached the final destination (point3).
+      if (this.currentIndex === this.points.length - 1) {
+        // Teleport back to the start (point1) and stop moving.
+        this.entity.position.set(this.points[0]);
+        this.isMoving = false;
+        this.currentIndex = 0;
+        this.stopMovingSound(); // Stop the moving sound
+      } else {
+        // Proceed to the next point in the path.
+        this.currentIndex++;
+      }
+    } else {
+      // Move towards the current target point.
+      const direction = targetPosition.sub(currentPosition).normalize();
+      this.entity.position.set(currentPosition.add(direction.mul(movement)));
+    }
+  }
+
+  playMovingSound() {
+    if (this.movingSoundGizmo) {
+      this.movingSoundGizmo.play();
+    }
+  }
+
+  stopMovingSound() {
+    if (this.movingSoundGizmo) {
+      this.movingSoundGizmo.stop();
+    }
+  }
+}
+
+hz.Component.register(NavigationLight);
+
+```
+
+- Attach the script to the Navigation Light object and edit the variables to match the image below.
+
+  <img width="554" height="636" alt="image" src="https://github.com/user-attachments/assets/a5f5798f-93fa-4e03-9280-ebbe2596cb27" />
+
+- Now were done. When a player enter the activation trigger it will cause the navigation light to move throught all 3 points Consecutively, ***Start Pos*** First, ***Middle Pos*** Second, and ***End Pos*** Last. Place these points where you want the light to go and enjoy.
+
+***Note:*** to add more points for more complex movement, in the code just add a however many points you need here:
+
+```typescript
+
+    point1: { type: hz.PropTypes.Entity },
+    point2: { type: hz.PropTypes.Entity },
+    point3: { type: hz.PropTypes.Entity },
+    // add more points here
+```
+
+and here:
+
+```typescript
+
+    this.points = [
+      this.props.point1!.position.get(),
+      this.props.point2!.position.get(),
+      this.props.point3!.position.get(),
+      //reflect points added here
+```
+<img width="1240" height="453" alt="Screenshot 2025-09-10 172526" src="https://github.com/user-attachments/assets/f74d073d-37c6-4230-a2e2-6e06b12dfe2a" />
+
+Navigatiojn light in a forest:
+
+<img width="961" height="526" alt="Screenshot 2025-09-10 180632" src="https://github.com/user-attachments/assets/4695b83c-b004-4098-86d0-0b4e0d607b28" />
+
+
+
+
+
 
 ---
 
-## 5. ✨ Neon Signs
+## 4. ✨ Neon Signs
 
 In darker environments, standard text and signs can easily fade into the background or become hard to read. Neon lights solve this by adding a vibrant, glowing presence that draws the player's eye. Whether you're labeling locations, guiding players, or adding style to your world, neon lights are both functional and visually striking — perfect for dark, atmospheric spaces
 
