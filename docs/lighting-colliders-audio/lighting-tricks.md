@@ -1,5 +1,6 @@
 # 5 Unique Lighting Tricks to Transform Your Dark World
 
+Author: MichaelSolomon
 Lighting isn’t just about seeing where you’re going — it sets the tone, guides the player, and makes your world feel alive. In this tutorial, we’ll start with a quick overview of the **Lighting Gizmo** and the **Environment Gizmo**, and then go through **five creative lighting techniques** you can use to elevate any dark environment.
 
 ## Learning Objectives
