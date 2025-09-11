@@ -340,7 +340,7 @@ Simulates a guard tower or sci-fi beacon sweeping the area.
 Adds directional lighting and creates tension or focus.
 
 **How to use it:**
-- Go to Public Assets, search for a ***search light***, drag it into the world and rename it Search Light.
+- Go to Public Assets, search for a ***search light***, drag it into the world and rename it Search Light (Make sure the y-rotation is 180 degrees). 
   
   <img width="1054" height="614" alt="image" src="https://github.com/user-attachments/assets/5b7326c8-6fb3-474c-82c3-f2c3db1c2944" />
 
@@ -530,7 +530,7 @@ The `Search_Light_Logic` component controls a dynamic rotating spotlight that ca
 | `tiltAngle`      | Number (degrees) | The vertical angle the light is tilted. Useful for aiming the light downward or upward. |
 | `offset`         | Number (degrees) | A rotational offset applied to the base direction of the light to align it correctly in your scene. |
 
-***Note:*** The offset is there because of the search lights unique shape. The side of the search light would be pointing towards you instead front. If you are using it for another assets and the orientation is off. Try changing the value of the offset by 90 degrees until it looks right.
+***Note:*** Make sure the search light is at 180 degrees y rotation. Also,the offset is there because of the search lights unique shape. The side of the search light would be pointing towards you instead front. If you are using it for another assets and the orientation is off. Try changing the value of the offset by 90 degrees until it looks right.
 
 
 
@@ -869,7 +869,8 @@ hz.Component.register(FlickeringLight);
 - Now preview the world and you can see the effect.
 
   <img width="642" height="342" alt="image" src="https://github.com/user-attachments/assets/d0010c79-3d15-4a11-8dd0-2f1c39310240" />
-  (The effect is more prominent in the video).
+
+  (The effect is more prominent in the editor).
 
  ***Bonus:*** This effect can also be used on a dynamic light by changing the intensity instead of the brightness.
 - To do this make a new script, copy the code below into the script and then attach it to a dynamic light.
@@ -906,6 +907,7 @@ class FlickeringDynamicLight extends hz.Component<typeof FlickeringDynamicLight>
 
 hz.Component.register(FlickeringDynamicLight);
 ```
+
 - This adds the flickering effect to the dynamic light. Which can be used to simulate fire for candle, torches and campfires.
 
 
