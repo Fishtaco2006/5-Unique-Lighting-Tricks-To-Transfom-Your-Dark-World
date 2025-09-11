@@ -5,6 +5,8 @@ Lighting isn’t just about seeing where you’re going — it sets the tone, gu
 ## Learning Objectives
 
 In this tutorial you will learn
+- Light Gizmo Overview
+- Environment Overview
 - How to make Fireflies
 - How to make a SearchLight
 - How to make a Navigation Light
@@ -322,8 +324,7 @@ hz.Component.register(FireflySpawner);
 
 ## ⚠️ Performance Tip
 
-Dynamic lights are **performance heavy**. If enabled, you can only spawn ~15 fireflies. Without them, you can spawn many more.
-
+Dynamic lights are **performance heavy**. If enabled, you can only spawn ~15 fireflies. Without them, you can spawn many more and they still look pretty good
 **With Dynamic Lighting**  
 ![With Light](https://github.com/user-attachments/assets/d5f9ec20-a330-482b-91b6-ac867183c091)
 
